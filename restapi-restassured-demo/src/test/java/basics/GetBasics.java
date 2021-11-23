@@ -23,6 +23,7 @@ public class GetBasics {
 	RequestSpecification - Interface - Allows you to specify how the request will look like. Specify a default request specification that will be sent with each request
 	Header - Class - Create a new header with the given name and value.
 	Response - Interface - The response of a request made by REST Assured.
+	ValidatableResponse - Class - Returns a validatable response that's lets you validate the response.
 	Matchers - Class - Creates a matcher that matches if the examined object matches ALL of the specified matchers.
 */
 	
@@ -33,7 +34,7 @@ public class GetBasics {
 		RestAssured.basePath = "/api/members";
 	}
 	
-	@Test(enabled=true)
+	@Test(enabled=false)
 	public void getMember() {
 		
 		// Arrange
@@ -147,7 +148,7 @@ public class GetBasics {
 		
 	}
 	
-	@Test(enabled=false)
+	@Test(enabled=true)
 	public void getSpecificMemberBDDWithStaticImport() {
 		
 		// Arrange & Act
@@ -171,7 +172,8 @@ public class GetBasics {
 												.statusCode(200)
 												.statusLine("HTTP/1.1 200 OK")
 												.header("X-Powered-By", "QA BOX LET'S TEST")
-												.body(containsString("Lion"));
+//												.body(containsString("Lion"));
+												.body("name", equalTo("Lioness"));
 		
 		
 	}
