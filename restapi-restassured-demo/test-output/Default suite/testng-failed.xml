@@ -3,12 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="basics.GetBasics">
+      <class name="basics.PostBasics">
         <methods>
-          <include name="getSpecificMemberBDDWithStaticImport"/>
+          <include name="createMemberUsingJsonFileBDD"/>
           <include name="setUp"/>
         </methods>
-      </class> <!-- basics.GetBasics -->
+      </class> <!-- basics.PostBasics -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
