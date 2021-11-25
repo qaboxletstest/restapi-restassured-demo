@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="8" total="9" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-11-25T08:14:58Z" name="Default suite" finished-at="2021-11-25T08:15:00Z" duration-ms="1830">
+  <suite started-at="2021-11-25T14:01:37Z" name="Default suite" finished-at="2021-11-25T14:01:39Z" duration-ms="1988">
     <groups>
     </groups>
-    <test started-at="2021-11-25T08:14:58Z" name="Default test" finished-at="2021-11-25T08:15:00Z" duration-ms="1830">
-      <class name="basics.PostBasics">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:basics.PostBasics@36b4fe2a]" started-at="2021-11-25T08:14:58Z" name="setUp" finished-at="2021-11-25T08:14:59Z" duration-ms="899" status="PASS">
+    <test started-at="2021-11-25T14:01:37Z" name="Default test" finished-at="2021-11-25T14:01:39Z" duration-ms="1988">
+      <class name="basics.FileUploadBasics">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:basics.FileUploadBasics@568ff82]" started-at="2021-11-25T14:01:37Z" name="setUp" finished-at="2021-11-25T14:01:38Z" duration-ms="941" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="createMemberUsingJsonFileByteArrayBDD()[pri:0, instance:basics.PostBasics@36b4fe2a]" started-at="2021-11-25T08:14:59Z" name="createMemberUsingJsonFileByteArrayBDD" finished-at="2021-11-25T08:15:00Z" duration-ms="903" status="PASS">
+        <test-method signature="uploadFile()[pri:0, instance:basics.FileUploadBasics@568ff82]" started-at="2021-11-25T14:01:38Z" name="uploadFile" finished-at="2021-11-25T14:01:39Z" duration-ms="1018" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- createMemberUsingJsonFileByteArrayBDD -->
-      </class> <!-- basics.PostBasics -->
+        </test-method> <!-- uploadFile -->
+      </class> <!-- basics.FileUploadBasics -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
