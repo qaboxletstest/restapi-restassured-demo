@@ -5,7 +5,7 @@
     <classes>
       <class name="basics.PostBasics">
         <methods>
-          <include name="createMemberUsingJsonFileBDD"/>
+          <include name="createMemberUsingJsonFileByteArrayBDD"/>
           <include name="setUp"/>
         </methods>
       </class> <!-- basics.PostBasics -->
