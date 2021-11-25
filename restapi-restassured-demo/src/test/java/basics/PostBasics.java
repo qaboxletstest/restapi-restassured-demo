@@ -139,7 +139,7 @@ public class PostBasics {
 	@Test(enabled = true)
 	public void createMemberUsingJsonFileByteArrayBDD() throws IOException {
 		// 
-		byte[] body =  Files.readAllBytes(Paths.get("Payloads/inputMember.json"));
+		byte[] body =  Files.readAllBytes(Paths.get(System.getProperty("user.dir") + "/src/test/resources/Payloads/inputMember.json"));
 		Response response = httpRequest
 										.body(body)
 										.when()
