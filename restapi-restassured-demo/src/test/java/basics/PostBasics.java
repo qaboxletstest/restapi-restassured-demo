@@ -1,7 +1,10 @@
 package basics;
 
 import java.io.File;
+import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -28,7 +31,7 @@ public class PostBasics {
 	Client has to inform server about the type of request body using Content-Type Header; eg application/json for json payload
  	Request Object
 		1. Request Line - URL, PORT and PATH Param
-		2. Headers
+		2. Headers - Content-Type is must
 		3. Body
 */
 	
@@ -133,6 +136,20 @@ public class PostBasics {
 		
 	}
 	
+	@Test(enabled = true)
+	public void createMemberUsingJsonFileByteArrayBDD() throws IOException {
+		// 
+		byte[] body =  Files.readAllBytes(Paths.get("Payloads/inputMember.json"));
+		Response response = httpRequest
+										.body(body)
+										.when()
+											.post()
+											.andReturn();
+		
+		System.out.println(response.asPrettyString());
+		
+	}
+	
 	@Test(enabled = false)
 	public void createMemberUsingModelNTransientBDD() {
 		// 
@@ -147,7 +164,7 @@ public class PostBasics {
 		
 	}
 	
-	@Test
+	@Test(enabled = false)
 	public void createMemberUsingModelNGsonExclusionBDD() {
 		// 
 		Member member = new Member("Steven", "Male");
