@@ -17,6 +17,7 @@ import io.restassured.specification.RequestSpecification;
 public class FileDownloadBasics {
 	
 	RequestSpecification httpRequest;
+	Response response;
 
 	@BeforeMethod
 	public void setUp() {
@@ -24,16 +25,15 @@ public class FileDownloadBasics {
 		RestAssured.basePath = "/api/download";
 		Header acceptHeader = new Header("Accept", "application/json");
 		httpRequest =  RestAssured.given().auth().basic("admin", "admin").header(acceptHeader);
+		 response = httpRequest
+							.queryParam("name", "Yey.jpg")
+							.when()
+								.get()
+								.andReturn();
 	}
 	
 	@Test(enabled = false)
 	public void downloadFileUsingByteArray() throws IOException {
-		
-		Response response = httpRequest
-								.queryParam("name", "Yey.jpg")
-								.when()
-									.get()
-									.andReturn();
 		
 		// Store the file into Byte Array
 		
@@ -51,12 +51,6 @@ public class FileDownloadBasics {
 	@Test(enabled = false)
 	public void downloadFileUsingByteArrayTryWithResource() throws FileNotFoundException, IOException {
 		
-		Response response = httpRequest
-								.queryParam("name", "Yey.jpg")
-								.when()
-									.get()
-									.andReturn();
-		
 		// Store the file into Byte Array
 		
 		byte[] downloadedFileBytes = response.asByteArray();
@@ -72,12 +66,6 @@ public class FileDownloadBasics {
 	
 	@Test(enabled = false)
 	public void downloadFileUsingInputStream() throws IOException {
-		
-		Response response = httpRequest
-								.queryParam("name", "Yey.jpg")
-								.when()
-									.get()
-									.andReturn();
 		
 		// Store the file into Input Stream
 		
@@ -95,12 +83,6 @@ public class FileDownloadBasics {
 	
 	@Test(enabled = true)
 	public void downloadFileUsingInputStreamTryWithResource() throws IOException {
-		
-		Response response = httpRequest
-								.queryParam("name", "Yey.jpg")
-								.when()
-									.get()
-									.andReturn();
 		
 		// Store the file into Input Stream
 		
