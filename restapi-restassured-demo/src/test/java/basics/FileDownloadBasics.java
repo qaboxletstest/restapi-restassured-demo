@@ -39,7 +39,7 @@ public class FileDownloadBasics {
 		
 		byte[] downloadedFileBytes = response.asByteArray();
 		
-		// Using FileOutputStream write the Byte Array into Physical File
+		// Using FileOutputStream write the Byte Array into Physical File and close FileOutputStream Object
 		
 		FileOutputStream fos = new FileOutputStream(System.getProperty("user.dir") + "/src/test/resources/Downloads/Test.jpg");
 		
@@ -61,7 +61,7 @@ public class FileDownloadBasics {
 		
 		byte[] downloadedFileBytes = response.asByteArray();
 		
-		// Using FileOutputStream write the Byte Array into Physical File
+		// Using FileOutputStream write the Byte Array into Physical File and close FileOutputStream Object
 		
 		try(FileOutputStream fos = new FileOutputStream(System.getProperty("user.dir") + "/src/test/resources/Downloads/Test.jpg")){
 			fos.write(downloadedFileBytes);
@@ -86,7 +86,7 @@ public class FileDownloadBasics {
 		// Create the File Object
 		File targetFile = new File(System.getProperty("user.dir") + "/src/test/resources/Downloads/Test.jpg");
 		
-		// Using FileOutputStream write the Byte Array into Physical File
+		// Using Files copy the InputStream to target file path and close InputStream Object
 		
 		Files.copy(downloadedFileIS, targetFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
 		
@@ -108,7 +108,7 @@ public class FileDownloadBasics {
 			// Create the File Object
 			File targetFile = new File(System.getProperty("user.dir") + "/src/test/resources/Downloads/Test.jpg");
 			
-			// Using FileOutputStream write the Byte Array into Physical File
+			// Using Files copy the InputStream to target file path and close InputStream Object
 			
 			Files.copy(downloadedFileIS, targetFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
 		}
