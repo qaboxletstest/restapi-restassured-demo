@@ -7,12 +7,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import io.restassured.RestAssured;
 import io.restassured.http.Header;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import static org.hamcrest.Matchers.*;
 
 public class FileDownloadBasics {
 	
@@ -94,6 +96,11 @@ public class FileDownloadBasics {
 			
 			Files.copy(downloadedFileIS, targetFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
 		}
+	}
+	
+	@AfterMethod
+	public void checkHeader() {
+		response.then().header("Transfer-Encoding", equalTo("chunked"));
 	}
 
 }
