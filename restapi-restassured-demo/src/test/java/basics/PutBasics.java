@@ -22,9 +22,9 @@ import io.restassured.specification.RequestSpecification;
 import models.Member;
 
 public class PutBasics {
-	/*	PUT - PUT is used to send data to a server to update/create a resource.
-	 * PUT should only be used if you are replacing a resource in its entirety.
-	The data sent to the server with POST is stored in the request body of the HTTP request.
+/*	PUT - PUT is used to send data to a server to update/create a resource.
+	PUT should only be used if you are replacing a resource in its entirety.
+	The data sent to the server with PUT is stored in the request body of the HTTP request.
 	Client has to inform server about the type of request body using Content-Type Header; eg application/json for json payload
  	Request Object
 		1. Request Line - URL, PORT and PATH Param

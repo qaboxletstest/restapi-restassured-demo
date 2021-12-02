@@ -9,12 +9,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
 import com.google.gson.JsonObject;
-
 import io.restassured.RestAssured;
 import io.restassured.http.Header;
 import io.restassured.http.Headers;
@@ -22,9 +19,9 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
 public class PatchBasics {
-	/*	PATCH - PATCH is used to send data to a server to update a resource.
-	 * PATCH is used when we want to update specific data related to that id.
-	The data sent to the server with POST is stored in the request body of the HTTP request.
+/*	PATCH - PATCH is used to send data to a server to update a resource.
+	PATCH is used when we want to update specific data related to that id.
+	The data sent to the server with PATCH is stored in the request body of the HTTP request.
 	Client has to inform server about the type of request body using Content-Type Header; eg application/json for json payload
  	Request Object
 		1. Request Line - URL, PORT and PATH Param
