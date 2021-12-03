@@ -3,12 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="basics.PostBasics">
+      <class name="basics.ConfigureTimeOutBasics">
         <methods>
-          <include name="createMemberUsingJsonFileByteArrayBDD"/>
           <include name="setUp"/>
+          <include name="configureTimeOut"/>
         </methods>
-      </class> <!-- basics.PostBasics -->
+      </class> <!-- basics.ConfigureTimeOutBasics -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

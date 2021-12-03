@@ -49,7 +49,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\gulivi\AppData\Local\Temp\testng-eclipse--1615179828\testng-customsuite.xml</span>
+                    <span>C:\Users\gulivi\AppData\Local\Temp\testng-eclipse--1107491864\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -91,7 +91,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">2 methods,   2 passed</span>
+                    <span class="method-stats">1 method,   1 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -102,12 +102,7 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="basics.PatchBasics" class="method navigator-link" hash-for-method="updateMember">updateMember</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="basics.PatchBasics" class="method navigator-link" hash-for-method="updateMemberUsingJsonObjectBDD">updateMemberUsingJsonObjectBDD</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="basics.DeleteBasics" class="method navigator-link" hash-for-method="deleteMemberBDD">deleteMemberBDD</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -125,21 +120,14 @@
           <div class="suite-Default_suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">basics.PatchBasics</span>
+              <span class="class-name">basics.DeleteBasics</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="updateMember">
-                  </a> <!-- updateMember -->
-                  <span class="method-name">updateMember</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="updateMemberUsingJsonObjectBDD">
-                  </a> <!-- updateMemberUsingJsonObjectBDD -->
-                  <span class="method-name">updateMemberUsingJsonObjectBDD</span>
+                  <a name="deleteMemberBDD">
+                  </a> <!-- deleteMemberBDD -->
+                  <span class="method-name">deleteMemberBDD</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -147,7 +135,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\gulivi\AppData\Local\Temp\testng-eclipse--1615179828\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\gulivi\AppData\Local\Temp\testng-eclipse--1107491864\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -156,7 +144,7 @@
 &lt;suite name=&quot;Default suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Default test&quot; verbose=&quot;2&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;basics.PatchBasics&quot;/&gt;
+      &lt;class name=&quot;basics.DeleteBasics&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -196,15 +184,11 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(2);
+data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'updateMember')
-data.setCell(0, 2, 'basics.PatchBasics')
-data.setCell(0, 3, 834);
-data.setCell(1, 0, 1)
-data.setCell(1, 1, 'updateMemberUsingJsonObjectBDD')
-data.setCell(1, 2, 'basics.PatchBasics')
-data.setCell(1, 3, 167);
+data.setCell(0, 1, 'deleteMemberBDD')
+data.setCell(0, 2, 'basics.DeleteBasics')
+data.setCell(0, 3, 1665);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
@@ -224,21 +208,13 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">5 ignored methods</span>
+            <span class="header-content">1 ignored method</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="ignored-class-div">
-              <span class="ignored-class-name">basics.PatchBasics</span>
+              <span class="ignored-class-name">basics.DeleteBasics</span>
               <div class="ignored-methods-div">
-                <span class="ignored-method-name">updateMemberUsingJsonFileBDD</span>
-                <br/>
-                <span class="ignored-method-name">updateMemberusingMapBDD</span>
-                <br/>
-                <span class="ignored-method-name">updateMemberUsingJsonFileByteArrayBDD</span>
-                <br/>
-                <span class="ignored-method-name">updateMemberBDD</span>
-                <br/>
-                <span class="ignored-method-name">updateMemberUsingJsonFileStreamBDD</span>
+                <span class="ignored-method-name">deleteMember</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
@@ -250,22 +226,14 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">basics.PatchBasics</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">basics.DeleteBasics</div> <!-- chronological-class-name -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">updateMember</span>
-                <span class="method-start">897 ms</span>
-              </div> <!-- test-method -->
-              <div class="configuration-method before">
-                <span class="method-name">setUp</span>
-                <span class="method-start">1734 ms</span>
-              </div> <!-- configuration-method before -->
-              <div class="test-method">
-                <span class="method-name">updateMemberUsingJsonObjectBDD</span>
-                <span class="method-start">1736 ms</span>
+                <span class="method-name">deleteMemberBDD</span>
+                <span class="method-start">1752 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
