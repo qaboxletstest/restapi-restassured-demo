@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified"
+	elementFormDefault="qualified"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="response">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="id">
+					<xs:complexType>
+						<xs:simpleContent>
+							<xs:extension base="idype"></xs:extension>
+						</xs:simpleContent>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="name">
+					<xs:complexType>
+						<xs:simpleContent>
+							<xs:extension base="nameype"></xs:extension>
+						</xs:simpleContent>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="gender">
+					<xs:complexType>
+						<xs:simpleContent>
+							<xs:extension base="genderype"></xs:extension>
+						</xs:simpleContent>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:simpleType name="idype">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="1"/>
+            <xs:pattern value="[1-9]*1" />
+        </xs:restriction>
+    </xs:simpleType>
+	<xs:simpleType name="nameype">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="4"/>
+            <xs:maxLength value="25"/>
+            <xs:pattern value="[a-zA-Z ]*" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="genderype">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="([Ff]e)?[Mm]ale" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:attribute default="false" name="additionalProperties" type="xs:string"/>
+</xs:schema>
