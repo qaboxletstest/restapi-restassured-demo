@@ -32,7 +32,7 @@
 	<xs:simpleType name="idype">
         <xs:restriction base="xs:integer">
             <xs:minInclusive value="1"/>
-            <xs:pattern value="[1-9]*1" />
+            <xs:pattern value="[1-9999999]*1" />
         </xs:restriction>
     </xs:simpleType>
 	<xs:simpleType name="nameype">
