@@ -7,12 +7,6 @@ import lombok.Setter;
 import lombok.ToString;
 
 //@Data
-//@NoArgsConstructor
-@Getter
-@Setter
-@ToString
-//@Data
-@NoArgsConstructor
 public class Book {
 	
 	private int bid;

@@ -33,8 +33,6 @@ public class DeserializeComplexJsonResponse {
 		
 		basePath += "{id}";
 		httpRequest =  given().auth().basic("admin", "admin").header(acceptHeader).pathParam("id", 2);
-		
-		Book b = new Book();
 
 		Response response = httpRequest
 										.when()

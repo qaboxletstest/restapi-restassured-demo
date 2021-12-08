@@ -8,11 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-@Getter
-@Setter
-@ToString
-//@Data
-@NoArgsConstructor
+@Data
 public class Author {
 	
 	private int id;
