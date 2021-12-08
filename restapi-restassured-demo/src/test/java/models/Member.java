@@ -15,6 +15,8 @@ public class Member {
 	@Expose
 	private String gender;	
 	
+	public Member() {};
+	
 	public Member(String name, String gender) {
 		super();
 		this.name = name;

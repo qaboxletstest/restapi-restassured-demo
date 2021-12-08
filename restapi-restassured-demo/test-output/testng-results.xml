@@ -2,20 +2,20 @@
 <testng-results ignored="4" total="5" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-12-07T12:03:19Z" name="Default suite" finished-at="2021-12-07T12:03:22Z" duration-ms="3305">
+  <suite started-at="2021-12-08T09:32:16Z" name="Default suite" finished-at="2021-12-08T09:32:18Z" duration-ms="2352">
     <groups>
     </groups>
-    <test started-at="2021-12-07T12:03:19Z" name="Default test" finished-at="2021-12-07T12:03:22Z" duration-ms="3305">
-      <class name="basics.DeserializeJsonResponse">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:basics.DeserializeJsonResponse@776b83cc]" started-at="2021-12-07T12:03:19Z" name="setUp" finished-at="2021-12-07T12:03:20Z" duration-ms="973" status="PASS">
+    <test started-at="2021-12-08T09:32:16Z" name="Default test" finished-at="2021-12-08T09:32:18Z" duration-ms="2352">
+      <class name="basics.DeserializeSimpleJsonResponse">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:basics.DeserializeSimpleJsonResponse@4e268090]" started-at="2021-12-08T09:32:16Z" name="setUp" finished-at="2021-12-08T09:32:16Z" duration-ms="784" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="deserializeSingleMemberNotFoundFailure()[pri:0, instance:basics.DeserializeJsonResponse@776b83cc]" started-at="2021-12-07T12:03:20Z" name="deserializeSingleMemberNotFoundFailure" finished-at="2021-12-07T12:03:22Z" duration-ms="2288" status="PASS">
+        <test-method signature="deserializeListOfMembersUsingTypeRef()[pri:0, instance:basics.DeserializeSimpleJsonResponse@4e268090]" started-at="2021-12-08T09:32:16Z" name="deserializeListOfMembersUsingTypeRef" finished-at="2021-12-08T09:32:18Z" duration-ms="1532" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- deserializeSingleMemberNotFoundFailure -->
-      </class> <!-- basics.DeserializeJsonResponse -->
+        </test-method> <!-- deserializeListOfMembersUsingTypeRef -->
+      </class> <!-- basics.DeserializeSimpleJsonResponse -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

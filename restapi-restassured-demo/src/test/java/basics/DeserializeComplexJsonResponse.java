@@ -3,17 +3,20 @@ package basics;
 import static io.restassured.RestAssured.basePath;
 import static io.restassured.RestAssured.baseURI;
 import static io.restassured.RestAssured.given;
+
 import java.util.List;
+
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
 import io.restassured.common.mapper.TypeRef;
 import io.restassured.http.Header;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-import models.Member;
-import models.MemberNotFoundFailure;
+import models.Author;
+import models.Book;
 
-public class DeserializeJsonResponse {
+public class DeserializeComplexJsonResponse {
 	
 	RequestSpecification httpRequest;
 	Header acceptHeader;
@@ -21,42 +24,44 @@ public class DeserializeJsonResponse {
 	@BeforeMethod
 	public void setUp() {
 		baseURI = "http://localhost:5002";
-		basePath = "/api/members/";
+		basePath = "/api/authors/";
 		acceptHeader = new Header("Accept", "application/json");
 	}
 	
-	@Test(enabled = false)
-	public void deserializeSingleMember() {
+	@Test(enabled = true)
+	public void deserializeSingleAuthor() {
 		
 		basePath += "{id}";
-		httpRequest =  given().auth().basic("admin", "admin").header(acceptHeader).pathParam("id", 4);
+		httpRequest =  given().auth().basic("admin", "admin").header(acceptHeader).pathParam("id", 2);
+		
+		Book b = new Book();
 
 		Response response = httpRequest
 										.when()
 											.get()
 											.andReturn();
-		Member member = response.getBody().as(Member.class);
-		System.out.println(member.toString());
+		Author author = response.getBody().as(Author.class);
+		System.out.println(author.toString());
 	}
 	
 	@Test(enabled = false)
-	public void deserializeSingleMemberUsingTypeRef() {
+	public void deserializeSingleAuthorUsingTypeRef() {
 		
 		// TypeRef - Used to specify generic type information when de-serializing a Response.
 		
 		basePath += "{id}";
-		httpRequest =  given().auth().basic("admin", "admin").header(acceptHeader).pathParam("id", 4);
+		httpRequest =  given().auth().basic("admin", "admin").header(acceptHeader).pathParam("id", 2);
 
 		Response response = httpRequest
 										.when()
 											.get()
 											.andReturn();
-		Member member = response.getBody().as(new TypeRef<Member>() {});
-		System.out.println(member.toString());
+		Author author = response.getBody().as(new TypeRef<Author>() {});
+		System.out.println(author.toString());
 	}
 	
 	@Test(enabled = false)
-	public void deserializeListOfMembers() {
+	public void deserializeListOfAuthors() {
 		
 		httpRequest =  given().auth().basic("admin", "admin").header(acceptHeader);
 
@@ -64,15 +69,15 @@ public class DeserializeJsonResponse {
 										.when()
 											.get()
 											.andReturn();
-		Member[] members = response.getBody().as(Member[].class);
+		Author[] authors = response.getBody().as(Author[].class);
 		
-		for(Member m: members) {
-			System.out.println(m.toString());
+		for(Author a: authors) {
+			System.out.println(a.toString());
 		}
 	}
 	
 	@Test(enabled = false)
-	public void deserializeListOfMembersUsingTypeRef() {
+	public void deserializeListOfAuthorsUsingTypeRef() {
 		
 		httpRequest =  given().auth().basic("admin", "admin").header(acceptHeader);
 
@@ -80,24 +85,10 @@ public class DeserializeJsonResponse {
 										.when()
 											.get()
 											.andReturn();
-		List<Member> members = response.getBody().as(new TypeRef<List<Member>>() {});
-		for(Member m: members) {
-			System.out.println(m.toString());
+		List<Author> authors = response.getBody().as(new TypeRef<List<Author>>() {});
+		for(Author a: authors) {
+			System.out.println(a.toString());
 		}
-	}
-	
-	@Test(enabled = true)
-	public void deserializeSingleMemberNotFoundFailure() {
-		
-		basePath += "{id}";
-		httpRequest =  given().auth().basic("admin", "admin").header(acceptHeader).pathParam("id", 40);
-
-		Response response = httpRequest
-										.when()
-											.get()
-											.andReturn();
-		MemberNotFoundFailure memberNotFoundFailure = response.getBody().as(MemberNotFoundFailure.class);
-		System.out.println(memberNotFoundFailure.toString());
 	}
 
 }

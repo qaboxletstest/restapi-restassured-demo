@@ -3,12 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="basics.XMLSchemaValidation">
+      <class name="basics.DeserializeSimpleJsonResponse">
         <methods>
           <include name="setUp"/>
-          <include name="singleMember"/>
+          <include name="deserializeListOfMembersUsingTypeRef"/>
         </methods>
-      </class> <!-- basics.XMLSchemaValidation -->
+      </class> <!-- basics.DeserializeSimpleJsonResponse -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
