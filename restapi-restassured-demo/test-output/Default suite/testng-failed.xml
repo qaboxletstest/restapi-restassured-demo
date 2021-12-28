@@ -3,12 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="basics.DeserializeSimpleJsonResponse">
+      <class name="basics.JSONPathBasics">
         <methods>
           <include name="setUp"/>
-          <include name="deserializeListOfMembersUsingTypeRef"/>
+          <include name="getResponseJSONPathInlineAssertion"/>
         </methods>
-      </class> <!-- basics.DeserializeSimpleJsonResponse -->
+      </class> <!-- basics.JSONPathBasics -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

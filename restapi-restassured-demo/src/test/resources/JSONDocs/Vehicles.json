@@ -1,0 +1,30 @@
+{
+   "bus":{
+       "name" : "Volvo",
+       "color" : "White",
+       "tyres" : [
+           {
+               "model": "AQRS11MP"
+               
+           },
+           {
+               "model": "AQRS88MP"
+               
+           }
+       ]
+   },
+   "car":{
+       "name" : "TATA",
+       "color" : "Blue",
+       "tyres" : [
+           {
+               "model": "XAMB32JK"
+               
+           },
+           {
+               "model": "XAMB49JK"
+               
+           }
+       ]
+   }
+}
