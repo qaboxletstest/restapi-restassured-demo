@@ -5,7 +5,7 @@ import java.io.File;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import static org.hamcrest.Matchers.*;
-import io.restassured.RestAssured;
+import static io.restassured.RestAssured.*;
 import io.restassured.http.Header;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
@@ -18,19 +18,30 @@ public class JSONPathBasics {
 	
 	@BeforeMethod
 	public void setUp() {
-		RestAssured.baseURI = "http://localhost:5002";
-		RestAssured.basePath = "/api/members/{id}";
+		baseURI = "http://localhost:5002";
+		basePath = "/api/members/{id}";
 		Header acceptHeader = new Header("Accept", "application/json");
-		RequestSpecification httpRequest =  RestAssured
-												.given()
-													.auth()
-														.basic("admin", "admin")
-													.header(acceptHeader)
-													.pathParam("id", 4);
+		RequestSpecification httpRequest =  given()
+												.auth()
+													.basic("admin", "admin")
+												.header(acceptHeader)
+												.pathParam("id", 4);
 		response = httpRequest
 							.when()
 								.get()
 								.andReturn();
+	}
+	
+	@Test(enabled=false)
+	public void getResponseJSONPathUsingPATH() {		
+		
+		// Using PATH -  call the .path() method on the response, and specify the JSONPath to the attributes
+//		response.getBody().path("id");
+		int id = response.path("id");
+		String name = response.path("name");
+		String gender = response.path("gender");
+		System.out.println(id + " - " + name + " - " + gender);
+		
 	}
 	
 	@Test(enabled=false)
@@ -55,17 +66,6 @@ public class JSONPathBasics {
 		
 	}
 	
-	@Test(enabled=false)
-	public void getResponseJSONPathUsingPATH() {		
-		
-		// Using PATH -  call the .path() method on the response, and specify the JSONPath to the attributes
-
-		int id = response.path("id");
-		String name = response.path("name");
-		String gender = response.path("gender");
-		System.out.println(id + " - " + name + " - " + gender);
-		
-	}
 	
 	@Test(enabled=false)
 	public void getResponseJSONPathUsingResponseAsString() {		
@@ -82,15 +82,11 @@ public class JSONPathBasics {
 	@Test(enabled=false)
 	public void getResponseJSONPathInlineAssertion() {		
 		
-		// Grab the whole response as a string and then use JsonPath to extract the attributes from that string
+		// Write test using the traditional Given, When, Then syntax supported by REST Assured
 		response
 				.then()
 					.assertThat()
-					.body("id", equalTo(4))
-					.and()
-					.body("name", equalTo("Shawn"))
-					.and()
-					.body("gender", equalTo("Male"));
+					.body("name", equalTo("Shawn"));
 		
 	}
 	
@@ -110,7 +106,7 @@ public class JSONPathBasics {
 		
 	}
 	
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void jsonPathJSONArray() {
 		File file = new File(System.getProperty("user.dir") + "/src/test/resources/JSONDocs/JSONArray.json");
 		
@@ -118,15 +114,15 @@ public class JSONPathBasics {
 		
 		// LIST - ALL ITEMS
 		
-		System.out.println("All Items (LIST) ----> " + jsonPath.getList("$"));
+//		System.out.println("All Items (LIST) ----> " + jsonPath.getList("$"));
 		
 		// INDEX - FIRST ITEM
 		
-		System.out.println("First Item ----> " + jsonPath.getList("[0]"));
+		System.out.println("First Item ----> " + jsonPath.get("[0]"));
 		
 		// INDEX - NAME PROPERTY OF FIRST ITEM
 		
-		System.out.println("First Item's Name ----> " + jsonPath.getString("[0].NAME"));
+//		System.out.println("First Item's Name ----> " + jsonPath.getString("[0].NAME"));
 	}
 	
 	
