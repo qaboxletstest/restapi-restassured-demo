@@ -83,6 +83,15 @@ public class GroovyGPathExpression {
 	}
 	
 	@Test(enabled = false)
+	public void chainGsonGpath() {
+		// Write GPath expression to chain FindALL and Find.
+		
+		String type = response.path("vehicles.findAll { it.weight > 1500 }.find{ it.publicTransport == true }.type");
+		System.out.println(type);
+				
+	}
+	
+	@Test(enabled = false)
 	public void collectGsonGpath() {
 		// Write GPath expression to transform type of All Private Transport Vehicles to uppercase.
 		
@@ -91,7 +100,7 @@ public class GroovyGPathExpression {
 				
 	}
 	
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void paramGsonGpath() {
 		// Write GPath expression using Parameter.
 		
@@ -99,15 +108,6 @@ public class GroovyGPathExpression {
 		
 		List<String> types = response.path("vehicles.findAll { it.weight < %s }.type", String.valueOf(weight));
 		System.out.println(types);
-				
-	}
-	
-	@Test(enabled = true)
-	public void chainGsonGpath() {
-		// Write GPath expression to chain FindALL and Find.
-		
-		String type = response.path("vehicles.findAll { it.weight > 1500 }.find{ it.publicTransport == true }.type");
-		System.out.println(type);
 				
 	}
 	
