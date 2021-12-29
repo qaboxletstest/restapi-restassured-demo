@@ -35,7 +35,7 @@ public class GroovyGPathExpression {
 //		List<?> vehicles = response.path("vehicles");
 //		System.out.println(vehicles);
 		
-		// STEP 2 - Find List of Public  transport
+		// STEP 2 - Find List of Public transport (FALSE would be ignored)
 //		HashMap<String, ?> publicTransports = response.path("vehicles.find { it.publicTransport } ");
 //		System.out.println(publicTransports);
 		
