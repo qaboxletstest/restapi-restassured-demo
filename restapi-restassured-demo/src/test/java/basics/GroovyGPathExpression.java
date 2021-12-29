@@ -84,7 +84,7 @@ public class GroovyGPathExpression {
 	
 	@Test(enabled = false)
 	public void collectGsonGpath() {
-		// Write GPath expression to transform type of All Vehicles to uppercase.
+		// Write GPath expression to transform type of All Private Transport Vehicles to uppercase.
 		
 		List<String> types = response.path("vehicles.findAll { it.publicTransport == false }.collect{ it.type.toUpperCase()}");
 		System.out.println(types);
