@@ -50,6 +50,8 @@ public class RequestResponseSpecificationBasics {
 //		given().spec(httpRequest).get() -- PASS
 //		given(httpRequest).get() -- PASS
 		
+//		RestAssured.requestSpecification = httpRequest;
+		
 		
 		// STEP 2. Create ResponseSpecification Reference
 		ResponseSpecBuilder resBuilder = new ResponseSpecBuilder();
