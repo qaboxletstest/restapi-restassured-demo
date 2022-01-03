@@ -1,11 +1,14 @@
 package basics;
 
+import static io.restassured.RestAssured.*;
+import static org.hamcrest.Matchers.*;
+
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
-import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 
@@ -17,33 +20,39 @@ import io.restassured.specification.ResponseSpecification;
  * ResponseSpecBuilder - is a class in Rest Assured, which contains a lot of methods to construct a ResponseSpecification.
  */
 
-import static org.hamcrest.Matchers.*;
-
-import static io.restassured.RestAssured.*;
-
 public class RequestResponseSpecificationBasics {
 	
 	RequestSpecification httpRequest;
 	ResponseSpecification httpResponse;
 	
 	@BeforeClass
-	public void setUp() {
+	public void setup() {
+		// STEP 1. Create RequestSpecification Reference - Using RequestSpecification Interface
 		
-		httpRequest = new RequestSpecBuilder()
-									.setBaseUri("http://localhost:5002/")
-									.setBasePath("/api/members")
-									.setAuth(RestAssured.basic("admin", "admin"))
-									.addHeader("Accept", "application/json")
-									.build();
+//		httpRequest = given()
+//						.baseUri("http://localhost:5002/")
+//						.basePath("/api/members")
+//						.auth()
+//						.basic("admin", "admin")
+//						.header("Accept", "application/json");
 		
-		// set a default RequestSpecification
-//		RestAssured.requestSpecification = httpRequest;
+		// OR
+		// STEP 1. Create RequestSpecification Reference - Using RequestSpecBuilder Class
+		RequestSpecBuilder reqBuilder = new RequestSpecBuilder();
+		httpRequest = reqBuilder
+							.setBaseUri("http://localhost:5002/")
+							.setBasePath("/api/members")
+							.setAuth(RestAssured.basic("admin", "admin"))
+							.addHeader("Accept", "application/json")
+							.build();
 		
+		
+		// STEP 2. Create ResponseSpecification Reference
 		ResponseSpecBuilder resBuilder = new ResponseSpecBuilder();
-		httpResponse = resBuilder.expectStatusCode(200)
-								 .expectContentType(ContentType.JSON)
-								 .expectHeader("X-Powered-By", "QA BOX LET'S TEST")
-								 .build();
+		httpResponse = resBuilder
+								.expectStatusCode(200)
+								.expectHeader("Content-Type", equalTo("application/json; charset=utf-8"))
+								.build();
 		
 	}
 	
@@ -51,32 +60,30 @@ public class RequestResponseSpecificationBasics {
 	@Test(enabled = false)
 	public void getMembers() {
 		
-//		RequestSpecification httpRequest = given()
-//											.baseUri("http://localhost:5002/")
-//											.basePath("/api/members")
-//											.auth()
-//											.basic("admin", "admin")
-//											.header("Accept", "application/json");
+	given()
+		.baseUri("http://localhost:5002/")
+		.basePath("/api/members")
+		.auth()
+		.basic("admin", "admin")
+		.header("Accept", "application/json")
+	.when()
+		.get()
+	.then()
+		.statusCode(200)
+		.header("Content-Type", equalTo("application/json; charset=utf-8"));
 		
-		RequestSpecification httpRequest = new RequestSpecBuilder()
-															.setBaseUri("http://localhost:5002/")
-															.setBasePath("/api/members")
-															.setAuth(RestAssured.basic("admin", "admin"))
-															.addHeader("Accept", "application/json")
-															.build();
-																
-		
-//		httpRequest
-//				.when()
-//					.get()
-//				.then()
-//					.log()
-//					.all()
-//					.statusCode(200)
-//					.header("Content-Type", equalTo("application/json; charset=utf-8"));
+	}
+	
+	@Test(enabled = false)
+	public void getFemaleMembers() {
 		
 		given()
-			.spec(httpRequest)
+			.baseUri("http://localhost:5002/")
+			.basePath("/api/members")
+			.auth()
+			.basic("admin", "admin")
+			.header("Accept", "application/json")
+			.queryParam("gender", "Female")
 		.when()
 			.get()
 		.then()
@@ -84,25 +91,7 @@ public class RequestResponseSpecificationBasics {
 			.header("Content-Type", equalTo("application/json; charset=utf-8"));
 	}
 	
-	@Test(enabled = false)
-	public void getFemaleMembers() {
-		
-		RequestSpecification httpRequest = given()
-											.baseUri("http://localhost:5002/")
-											.basePath("/api/members")
-											.auth()
-											.basic("admin", "admin")
-											.header("Accept", "application/json")
-											.queryParam("gender", "Female");
-		httpRequest
-				.when()
-					.get()
-				.then()
-					.statusCode(200)
-					.header("Content-Type", equalTo("application/json; charset=utf-8"));
-	}
-	
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void getMembersUsingSpecs() {
 		given()
 			.spec(httpRequest)
@@ -122,7 +111,7 @@ public class RequestResponseSpecificationBasics {
 			.get()
 		.then()
 			.spec(httpResponse)
-			.body("size()", equalTo(2))
+			.body("size()", equalTo(4))
 			.header("Access-Control-Allow-Origin", "*");
 	}
 }
