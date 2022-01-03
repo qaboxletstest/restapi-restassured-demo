@@ -46,6 +46,10 @@ public class RequestResponseSpecificationBasics {
 							.addHeader("Accept", "application/json")
 							.build();
 		
+//		httpRequest.get() - Cannot get property ‘assertionClosure’ on null object” Exception
+//		given().spec(httpRequest).get() -- PASS
+//		given(httpRequest).get() -- PASS
+		
 		
 		// STEP 2. Create ResponseSpecification Reference
 		ResponseSpecBuilder resBuilder = new ResponseSpecBuilder();
