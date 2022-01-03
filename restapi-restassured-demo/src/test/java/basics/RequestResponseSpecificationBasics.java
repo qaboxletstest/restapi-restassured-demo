@@ -29,6 +29,9 @@ public class RequestResponseSpecificationBasics {
 									.addHeader("Accept", "application/json")
 									.build();
 		
+		// set a default RequestSpecification
+//		RestAssured.requestSpecification = httpRequest;
+		
 		ResponseSpecBuilder resBuilder = new ResponseSpecBuilder();
 		httpResponse = resBuilder.expectStatusCode(200)
 								 .expectContentType(ContentType.JSON)

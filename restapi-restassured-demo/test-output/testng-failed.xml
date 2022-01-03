@@ -3,12 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="basics.GroovyGPathExpression">
+      <class name="basics.RequestResponseSpecificationBasics">
         <methods>
+          <include name="getFemaleMembersUsingSpecs"/>
           <include name="setUp"/>
-          <include name="collectGsonGpath"/>
         </methods>
-      </class> <!-- basics.GroovyGPathExpression -->
+      </class> <!-- basics.RequestResponseSpecificationBasics -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
