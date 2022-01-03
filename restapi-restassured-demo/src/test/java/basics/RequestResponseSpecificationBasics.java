@@ -2,13 +2,20 @@ package basics;
 
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
+
+/*
+ * Problem at hand - Duplicate Code in both Request and Response Objects
+ * RequestSpecification - is an interface that allows you to specify how the request will look like.
+ * RequestSpecBuilder - is a class in Rest Assured, which contains a lot of methods to construct a RequestSpecification.
+ * ResponseSpecification - Allows you to specify how the expected response must look like in order for a test to pass.
+ * ResponseSpecBuilder - is a class in Rest Assured, which contains a lot of methods to construct a ResponseSpecification.
+ */
 
 import static org.hamcrest.Matchers.*;
 
