@@ -38,14 +38,6 @@ public class RequestResponseSpecificationBasics {
 								 .expectHeader("X-Powered-By", "QA BOX LET'S TEST")
 								 .build();
 		
-		given()
-		.spec(httpRequest)
-	.when()
-		.get()
-	.then()
-		.statusCode(200)
-		.header("Content-Type", equalTo("application/json; charset=utf-8"));
-		
 	}
 	
 	
@@ -115,7 +107,7 @@ public class RequestResponseSpecificationBasics {
 			.header("Access-Control-Allow-Origin", "*");
 	}
 
-	@Test
+	@Test(enabled = true)
 	public void getFemaleMembersUsingSpecs() {
 		given(httpRequest)
 			.queryParam("gender", "Female")
