@@ -85,7 +85,7 @@ public class RequestResponseSpecificationBasics {
 											.basePath("/api/members")
 											.auth()
 											.basic("admin", "admin")
-											.header("Accept", ContentType.JSON)
+											.header("Accept", "application/json")
 											.queryParam("gender", "Female");
 		httpRequest
 				.when()

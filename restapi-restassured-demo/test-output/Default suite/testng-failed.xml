@@ -5,7 +5,7 @@
     <classes>
       <class name="basics.RequestResponseSpecificationBasics">
         <methods>
-          <include name="getFemaleMembersUsingSpecs"/>
+          <include name="getMembersUsingSpecs"/>
           <include name="setUp"/>
         </methods>
       </class> <!-- basics.RequestResponseSpecificationBasics -->
