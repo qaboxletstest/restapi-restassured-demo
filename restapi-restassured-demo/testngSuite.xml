@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+	<test thread-count="5" name="CreateTest">
+		<classes>
+			<class name="chain.CreateMember" />
+		</classes>
+	</test> <!-- Test -->
+	<test thread-count="5" name="GetTest">
+		<classes>
+			<class name="chain.GetMember" />
+		</classes>
+	</test> <!-- Test -->
+	<test thread-count="5" name="UpdateTest">
+		<classes>
+			<class name="chain.UpdateMember" />
+		</classes>
+	</test> <!-- Test -->
+	<test thread-count="5" name="DeleteTest">
+		<classes>
+			<class name="chain.DeleteMember" />
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->

@@ -59,7 +59,7 @@ public class RequestResponseSpecificationBasics {
 								.build();
 		
 //		RestAssured.requestSpecification = httpRequest;
-//		RestAssured.responseSpecification = httpResponse
+//		RestAssured.responseSpecification = httpResponse;
 	}
 	
 	
